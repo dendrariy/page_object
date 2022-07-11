@@ -25,3 +25,13 @@ class ProductPage(BasePage):
     def should_be_dissapeared(self):
         assert  self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is not disappeared"
+
+    def check_product_name(self, name):
+        added_name = self.get_added_product_name()
+
+        assert added_name == name, "Added name is not equal to origin"
+
+    def check_product_price(self, price):
+        basket_price = self.get_added_product_price()
+
+        assert basket_price == price, "Basket price is not equal to origin"
